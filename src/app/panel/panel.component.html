@@ -1,0 +1,99 @@
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <nav class="navbar is-fixed-top panel">
+    <p class="panel-heading">
+      <img
+        class="mini-logo"
+        src="/assets/images/logo.png"
+        alt="image search logo"
+      />Image Search App
+    </p>
+
+    <div class="panel-block">
+      <p class="control has-icons-left">
+        <input
+          ngModel
+          class="input form-control"
+          type="text"
+          placeholder="Search"
+          name="query"
+        />
+        <span class="icon is-left">
+          <i class="fas fa-search" aria-hidden="true"></i>
+        </span>
+      </p>
+      <div>
+        <button class="button">Search</button>
+      </div>
+    </div>
+  </nav>
+</form>
+
+<app-display [images]="images" [notFound]="notFound"></app-display>
+
+<nav
+  *ngIf="totalPages >= 1"
+  class="pagination is-centered container panel"
+  role="navigation"
+  aria-label="pagination"
+>
+  <a
+    *ngIf="totalPages > 1 && page > 1"
+    class="pagination-previous"
+    (click)="prevPage()"
+    >Previous</a
+  >
+  <a
+    *ngIf="totalPages > 1 && page < totalPages"
+    class="pagination-next"
+    (click)="nextPage()"
+    >Next page</a
+  >
+  <ul class="pagination-list">
+    <li>
+      <a
+        *ngIf="page != 1"
+        class="pagination-link"
+        aria-label="Goto page 1"
+        (click)="getPage(1)"
+        >1</a
+      >
+    </li>
+    <li *ngIf="page != 1"><span class="pagination-ellipsis">&hellip;</span></li>
+    <li>
+      <a
+        *ngIf="page != 1 && page != 2"
+        class="pagination-link"
+        aria-label="`Goto page ${page -1}`"
+        (click)="getPage(page - 1)"
+        >{{ page - 1 }}</a
+      >
+    </li>
+    <li>
+      <a
+        class="pagination-link is-current"
+        aria-label="`Page ${page}`"
+        aria-current="page"
+        >{{ page }}</a
+      >
+    </li>
+    <li>
+      <a
+        *ngIf="page >= 1 && page < totalPages"
+        class="pagination-link"
+        aria-label="`Goto page ${ page + 1 }`"
+        (click)="getPage(page + 1)"
+        >{{ page + 1 }}</a
+      >
+    </li>
+    <li><span class="pagination-ellipsis">&hellip;</span></li>
+    <li>
+      <a
+        *ngIf="totalPages > 1 && page < totalPages"
+        class="pagination-link"
+        aria-label="`Goto page ${totalPages}`"
+        (click)="getPage(totalPages)"
+        >{{ totalPages }}</a
+      >
+    </li>
+  </ul>
+</nav>

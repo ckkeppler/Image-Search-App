@@ -1,0 +1,18 @@
+<div
+  class="container"
+  *ngIf="images.length === 0 && notFound === false; else showImages"
+>
+  <img src="/assets/images/logo.png" alt="image search logo" />
+</div>
+<ng-template #showImages>
+  <div class="container">
+    <a
+      class="img"
+      *ngFor="let image of images"
+      href="{{ image.urls.regular }}"
+      target="_blank"
+      ><img src="{{ image.urls.thumb }}" alt=""
+    /></a>
+  </div>
+</ng-template>
+<app-not-found *ngIf="notFound"></app-not-found>

@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bulma/bulma.sass";
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.is-tall {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.is-tall-container {
+  flex: 1;
+}

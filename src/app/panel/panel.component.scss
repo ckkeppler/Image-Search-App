@@ -1,0 +1,29 @@
+.container {
+  margin: auto;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .img {
+    margin: 25px;
+    object-fit: contain;
+  }
+}
+
+.button {
+  margin-left: 10px;
+  background-color: rgba(rgb(163, 159, 159), 0.4);
+}
+
+.mini-logo {
+  height: 35px;
+  width: 35px;
+  margin-bottom: -5px;
+  margin-right: 15px;
+}
+
+.navbar {
+  display: block;
+}

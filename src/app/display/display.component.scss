@@ -1,0 +1,13 @@
+.container {
+  margin: auto;
+  padding-top: 100px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  a img {
+    margin: 25px;
+    object-fit: contain;
+  }
+}
